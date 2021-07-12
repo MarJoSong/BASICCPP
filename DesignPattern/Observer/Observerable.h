@@ -16,8 +16,8 @@ class Observerable {
   Observerable();
   virtual ~Observerable();
 
-  int GetObserverCount() const {
-    return _Obs.size();
+  size_t GetObserverCount() const {
+    return _Observer.size();
   }
 
   //注册观察者
@@ -27,7 +27,7 @@ class Observerable {
   void Detach(Observer* pOb);
   void DetachAll();
 
-  void SendNews(string news);
+  virtual void SendNews(string news);
 
  protected:
   void SetChange(string news);
@@ -36,7 +36,7 @@ class Observerable {
   void Notify(void *pArg);
 
  private:
-  list<Observer *> _Obs;
+  list<Observer *> _Observer;
   bool _bChange;
 };
 

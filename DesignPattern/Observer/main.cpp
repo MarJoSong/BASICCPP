@@ -6,19 +6,19 @@ using namespace std;
 
 class BBC:public Observerable{
  public:
-  void SendNews(string news) {
+  void SendNews(string news) override {
     SetChange("BBC: " + news);
   }
 };
 
 class User1 : public Observer {
-  void Update(void *pArg) {
+  void Update(void *pArg) override {
     cout << "user 1 got News from " << (char*)pArg << endl;
   }
 };
 
 class User2 : public Observer {
-  void Update(void *pArg) {
+  void Update(void *pArg) override {
     cout << "user 2 got News from " << (char*)pArg << endl;
   }
 };

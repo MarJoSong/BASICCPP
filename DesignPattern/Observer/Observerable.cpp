@@ -16,26 +16,26 @@ void Observerable::Attach(Observer *pOb) {
     return;
   }
 
-  auto it = _Obs.begin();
-  for (; it != _Obs.end(); it++) {
+  auto it = _Observer.begin();
+  for (; it != _Observer.end(); it++) {
     if (*it == pOb) {
       return;
     }
   }
 
-  _Obs.push_back(pOb);
+  _Observer.push_back(pOb);
 }
 
 void Observerable::Detach(Observer *pOb) {
-  if (pOb == NULL || _Obs.empty()) {
+  if (pOb == NULL || _Observer.empty()) {
     return;
   }
 
-  _Obs.remove(pOb);
+  _Observer.remove(pOb);
 }
 
 void Observerable::DetachAll() {
-  _Obs.clear();
+  _Observer.clear();
 }
 
 void Observerable::SendNews(string news) {
@@ -53,8 +53,8 @@ void Observerable::Notify(void *pArg) {
     return;
   }
 
-  auto it = _Obs.begin();
-  for (; it != _Obs.end() ; it++) {
+  auto it = _Observer.begin();
+  for (; it != _Observer.end() ; it++) {
     (*it)->Update(pArg);
   }
 
