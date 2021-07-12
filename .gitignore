@@ -1,0 +1,4 @@
+#不跟踪cmake-build-开头的文件夹及里面的文件
+cmake-build-*/   
+#不跟踪.idea文件夹及里面的文件
+.idea/
